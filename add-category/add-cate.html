@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>ibuy Auctions</title>
+		 <meta charset="UTF-8" />
+		<link rel="stylesheet" href="front-end/ibuy.css" />
+		<style>
+			td,th {
+				border: 2px solid black;
+			}
+		</style>
+	</head>
+
+	<body>
+		<hr />
+					<h1>ADD CATEGORY</h1>
+
+					<form method="POST">
+						
+						<label>Category</label> <input type="text" name="add-category"/>
+						
+						
+						<input type="submit" value="Submit" />
+
+					</form>
+					<table>
+						<tr>
+							<th>category-ID</th>
+							<th>category-name</th>
+							<th>edit-category</th>
+							<th>delete-category</th>
+						</tr>
+						<?php
+						 // click here to trigger the below input tag
+							foreach($get as $value){
+								//echo "dasljkfsadf<br>";
+
+								echo "<tr>
+									<td>".$value['category_id']."</td>
+									<td>".$value['category_name']."</td>
+									<td>
+										<form method=GET action=/edit-category>
+											<input name=id type=hidden value=".$value['category_id'].">
+											<input type=submit value=edit>
+										</form>
+									</td>
+									<td>
+										<form method=GET action=/add-category>
+											<input name=delete type=hidden value=".$value['category_id'].">
+											<input type=submit value=delete>
+										</form>
+									</td>
+								</tr>";
+						}
+							var_dump($get); // Ok done
+						?>
+					</table>
+
+			<footer>
+				&copy; ibuy 2019
+			</footer>
+		</main>
+	</body>
+</html>
