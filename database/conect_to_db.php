@@ -22,6 +22,7 @@ function connectToDB(){
 var_dump(connectToDB());
 
 connectToDB();
+session_start();
 
 
 ?>

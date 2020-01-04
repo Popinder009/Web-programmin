@@ -45,5 +45,7 @@
 
 		
 	//var_dump($get); // show category
+		echo $_SESSION['username'];
+
 		include('add-cate.html');
 ?>

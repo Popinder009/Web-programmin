@@ -8,17 +8,17 @@
 
 	<body>
 		<h1>EDIT CATEGORY</h1>
-					<form method="GET" action="/add-category/">
-						<label>Category name</label> 
-						<?php 
-							if (isset($_GET['id']))
-								echo "
-									<input type=hidden name=edit value=".$_GET['id'].">
-									<input name=name type=text>
-								";
-						?>
-						<input type="submit" value="edit">
-					</form>
+			<form method="GET" action="/add-category/">
+				<label>Category name</label> 
+				<?php 
+					if (isset($_GET['id']))
+						echo "
+							<input type=hidden name=edit value=".$_GET['id'].">
+							<input name=name type=text>
+						";
+				?>
+				<input type="submit" value="edit">
+			</form>
 
 
 		<footer>

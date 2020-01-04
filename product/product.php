@@ -3,7 +3,7 @@
 	<head>
 		<title>ibuy Auctions</title>
 		 <meta charset="UTF-8" />
-		<link rel="stylesheet" href="front-end/ibuy.css" />
+		<link rel="stylesheet" href="../ibuy.css" />
 	</head>
 
 	<body>
@@ -20,14 +20,25 @@
 
 		<nav>
 			<ul>
-				<li><a href="#">Home </a></li>
-				<li><a href="#">Garden</a></li>
-				<li><a href="#">Electronics</a></li>
-				<li><a href="#">Fashion</a></li>
-				<li><a href="#">Sport</a></li>
-				<li><a href="#">Health</a></li>
-				<li><a href="#">Toys</a></li>
-				<li><a href="#">Motors</a></li>
+				<?php
+					$cateNum = 0;
+					foreach($get as $value){
+						$cateNum++;
+						if($cateNum > 8)continue;
+							echo "
+								<li><a href=#>".$value['category_name']."</a></li>
+							";
+						/*<li><a href="#">Home </a></li>
+						<li><a href="#">Garden</a></li>
+						<li><a href="#">Electronics</a></li>
+						<li><a href="#">Fashion</a></li>
+						<li><a href="#">Sport</a></li>
+						<li><a href="#">Health</a></li>
+						<li><a href="#">Toys</a></li>
+						<li><a href="#">Motors</a></li>*/
+					}
+					echo "<li><a href=#>".$cateNum."</a></li>"
+				?>
 				
 			</ul>
 		</nav>
