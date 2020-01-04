@@ -12,3 +12,11 @@ CREATE TABLE user_account (
     password VARCHAR(60) NOT NULL,
     PRIMARY KEY (user_id)
 );
+CREATE TABLE product(
+	product_id int NOT NULL AUTO_INCREMENT,
+	product_name VARCHAR(30) NOT NULL,
+    product_description VARCHAR(60) NOT NULL,
+    product_image VARCHAR(60) NOT NULL,
+    product_category VARCHAR(60) NOT NULL,
+    primary key (product_id)
+);
