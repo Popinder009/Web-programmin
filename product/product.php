@@ -56,7 +56,7 @@
 								<img src=product.png alt=product name>
 								<article>
 									<h2>".$value['product_name']."</h2>
-									<h3>".$value['product_category']."</h3>
+									<h3>".$value['category_name']."</h3>
 									<p>".$value['product_description']."</p>
 									<p class=price>Current bid: £123.45</p>
 									<a href=# class=more>More &gt;&gt;</a>

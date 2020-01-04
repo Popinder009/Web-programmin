@@ -17,6 +17,7 @@ CREATE TABLE product(
 	product_name VARCHAR(30) NOT NULL,
     product_description VARCHAR(60) NOT NULL,
     product_image VARCHAR(60) NOT NULL,
-    product_category VARCHAR(60) NOT NULL,
-    primary key (product_id)
+    product_category int NOT NULL,
+    PRIMARY KEY (product_id),
+    FOREIGN KEY (product_category) REFERENCES category (category_id)
 );

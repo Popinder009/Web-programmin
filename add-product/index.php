@@ -1,5 +1,6 @@
 <?php
 	include(__DIR__ .'/../database/conect_to_db.php');
+	echo $_POST['add-product-category'];
 	if(!empty($_POST['add-product-name']) && !empty($_POST['add-product-description'])
 		&& !empty($_POST['add-product-image']) && !empty($_POST['add-product-category'])){
 		try{
@@ -56,7 +57,7 @@
 							<?php
 								foreach ($get as $value){
 									echo "
-									<input type=radio value=".$value['category_id']." name=add-product-category/>
+									<input type=radio value=".$value['category_id']." name=add-product-category>
 										<label>".$value['category_name']."</label><br>
 									";
 								}

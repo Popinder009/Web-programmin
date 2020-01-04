@@ -1,10 +1,12 @@
 <?php 
 	include('../database/conect_to_db.php');
 	// Get product
-	$nono = $connect->prepare("SELECT * from product");
+	$nono = $connect->prepare("SELECT * from product 
+		join category on category.category_id = product.product_category");
 	$nono->execute();
 	$getProduct = $nono->fetchAll(PDO::FETCH_ASSOC);
 
+	var_dump($getProduct);
 	// Get category
 	$sth = $connect->prepare("SELECT category_id,category_name FROM category");
 	$sth->execute();
