@@ -1,4 +1,5 @@
 CREATE DATABASE test;
+-- use test;
 
 CREATE TABLE category (
 	category_id int NOT NULL AUTO_INCREMENT,

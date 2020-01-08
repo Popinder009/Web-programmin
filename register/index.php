@@ -21,7 +21,8 @@
 <!DOCTYPE HTML>
 <html> 
 	<head>
-		<link rel="stylesheet" href="css.php">
+		<meta charset="UTF-8" />
+		<link rel="stylesheet" href="../ibuy.css" />
 	</head>
 <body>
 <h2>Register</h2>

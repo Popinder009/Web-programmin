@@ -26,12 +26,12 @@
 	}
 
 	// Delete category
-		if(isset($_GET['delete'])){
+		if(isset($_GET['deleteCategory'])){
 			try {
 				global $connect;
 				$SQL = "delete from category where category_id=:id";
 				$handle = $connect->prepare($SQL);
-				$handle->bindValue(":id", $_GET['delete']);
+				$handle->bindValue(":id", $_GET['deleteCategory']);
 				$handle->execute();
 			} catch (PDOException $e){
 			}

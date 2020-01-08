@@ -79,7 +79,7 @@
 			<p><?php if(!empty($getDetail))echo $getDetail[0]['product_description']; ?></p>
 			</section>
 			<section class="reviews">
-				<h2>Reviews of User.Name </h2>
+				<h2>Reviews of <?php if(!empty($getDetail))echo $getDetail[0]['username']; ?> </h2>
 				<ul>
 					<?php 
 						foreach ($reviews as $value){

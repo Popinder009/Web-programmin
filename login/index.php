@@ -1,6 +1,10 @@
 <?php 
 	include(__DIR__ .'/../database/conect_to_db.php');
-	// session_destroy();
+	if (isset($_GET['Logout'])){
+		echo "<a href=/login/>Click here to continue!</a>";
+		session_destroy();
+	}
+
 	if (!isset($_SESSION['user_id'],$_SESSION['username'])){
 		include ('login.php');
 		if(isset($_POST['logUser']) && !empty($_POST['logUser'])){

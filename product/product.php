@@ -11,12 +11,14 @@
 		<header>
 			<h1><span class="i">i</span><span class="b">b</span><span class="u">u</span><span class="y">y</span></h1>
 
-			<form action="#">
+			<form>
 				<input type="text" name="search" placeholder="Search for anything" />
 				<input type="submit" value="Search" />
-				<a href="/login"><img src="images/images.png" style="width:5px height:auto"></a>
 			</form>
 		</header>
+			<form method="GET" action="/login/">
+				<input name="Logout" type="submit" value="Logout">
+			</form>
 
 		<nav>
 			<ul>
@@ -83,7 +85,7 @@
 										<h2>".$value['product_name']."</h2>
 										<h3>".$value['category_name']."</h3>
 										<p>".$value['product_description']."</p>
-										<p class=price>Current bid: £123.45</p>
+										<p class=price>Current bid: £".$value['product_bid']."</p>
 										<a href=/product-detail?detailId=".$value['product_id']." class=more>More &gt;&gt;</a>
 									</article>
 								</li>

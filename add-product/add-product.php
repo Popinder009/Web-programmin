@@ -23,14 +23,14 @@
 						<label>Product Image </label> <input type="file" name="add-product-image" accept="image/*"/><br>
 
 						<label>Product Category: </label><br>
-							<?php
-								foreach ($getCategory as $value){
-									echo "
-									<input type=radio value=".$value['category_id']." name=add-product-category>
-										<label>".$value['category_name']."</label><br>
-									";
-								}
-							?>
+						<?php
+							foreach ($getCategory as $value){
+								echo "
+								<input type=radio value=".$value['category_id']." name=add-product-category>
+									<label>".$value['category_name']."</label><br>
+								";
+							}
+						?>
 						<input type="submit" value="Submit" />
 
 					</form>
@@ -50,19 +50,19 @@
 									<td>".$value['product_id']."</td>
 									<td>".$value['product_name']."</td>
 									<td>
-										<form method=GET action=/edit-category>
-											<input name=id type=hidden value=".$value['product_id'].">
+										<form method=GET action=/edit-product>
+											<input name=editId type=hidden value=".$value['product_id'].">
 											<input type=submit value=edit>
 										</form>
 									</td>
 									<td>
-										<form method=GET action=/add-category>
-											<input name=delete type=hidden value=".$value['product_id'].">
+										<form method=GET action=/add-product>
+											<input name=deleteProduct type=hidden value=".$value['product_id'].">
 											<input type=submit value=delete>
 										</form>
 									</td>
 								</tr>";
-						}
+							}
 						?>
 					</table>
 
