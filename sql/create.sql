@@ -18,6 +18,17 @@ CREATE TABLE product(
     product_description VARCHAR(60) NOT NULL,
     product_image VARCHAR(60) NOT NULL,
     product_category int NOT NULL,
+    product_bid int DEFAULT 0,
+    user_id int NOT NULL,
     PRIMARY KEY (product_id),
-    FOREIGN KEY (product_category) REFERENCES category (category_id)
+    FOREIGN KEY (product_category) REFERENCES category (category_id),
+    FOREIGN KEY (user_id) REFERENCES user_account (user_id)
+);
+CREATE TABLE review (
+    product_id int NOT NULL,
+    user_id int NOT NULL,
+    review VARCHAR(300) NOT NULL,
+    date VARCHAR(20) NOT NULL,
+    FOREIGN KEY (product_id) REFERENCES product (product_id),
+    FOREIGN KEY (user_id) REFERENCES user_account (user_id)
 );
