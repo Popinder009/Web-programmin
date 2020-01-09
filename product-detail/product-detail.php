@@ -26,7 +26,7 @@
 				</p>
 
 				<p class="price">Current bid: £<?php echo $getDetail[0]['product_bid']; ?></p>
-				<time>Time left: 8 hours 3 minutes</time>
+				<time>Time left: <?php echo $timeLeft->format('%d days %H hours %i minutes'); ?></time>
 				<form method="POST" class="bid">
 					<input name="placeBid" type="text" placeholder="Enter bid amount" />
 					<input type="submit" value="Place bid" />

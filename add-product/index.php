@@ -4,20 +4,17 @@
 
 	if (isset($_SESSION['user_id'],$_SESSION['username'])){
 		if(!empty($_POST['add-product-name']) && !empty($_POST['add-product-description']) && !empty($_POST['add-product-time']) 
-			&& $_POST['add-product-time'] > 0 && !empty($_FILES['add-product-image']) && !empty($_POST['add-product-category'])){
+			&& $_POST['add-product-time'] > 0 && $_POST['add-product-time'] < 24*28 
+			&& !empty($_FILES['add-product-image']) && !empty($_POST['add-product-category'])){
 			try {
 				global $connect;
-
-				$now = date("ymdhi");
-				$timeExpired = $now + $_POST['add-product-time']*100;
-					//if ($now < 20 01 09 02 30){ 
+				$timeExpired = date("ymdHi",strtotime('+'.$_POST['add-product-time'].' hours'));
 
 
 				// Get image id increment
     			$selectImage = $connect->prepare("SELECT `auto_increment` FROM INFORMATION_SCHEMA.TABLES WHERE table_name = 'product'");
 				$selectImage->execute();
 				$getImage = $selectImage->fetchAll(PDO::FETCH_ASSOC);
-				var_dump($getImage);
 
 				echo "<h1>successful</h1>";
 
@@ -67,7 +64,6 @@
 			$sth->execute();
 			$getCategory = $sth->fetchAll(PDO::FETCH_ASSOC); // get cat
 		} catch (PDOException $e){
-			echo "hello";
 		}
 		include ('add-product.php');
 	}

@@ -37,7 +37,6 @@
 		$handle->execute();
 		$getDetail = $handle->fetchAll(PDO::FETCH_ASSOC); // get cat
 
-		var_dump($getDetail);
 
 
 		// get review
@@ -51,11 +50,24 @@
 		$reviews = $sth->fetchAll(PDO::FETCH_ASSOC);
 
 		if (!empty($getDetail)){
-			echo date("ymdhi")."<br>";
-			$timeLeft = $getDetail[0]['time_end'] - date("ymdhi");
-			echo $timeLeft; // wait 
-			include ('product-detail.php');
+			$now = date("ymdHi");
+			$end = $getDetail[0]['time_end'];
+			if ($now < $end){
+			// Reference from StackOverflow: https://stackoverflow.com/questions/15688775/php-find-difference-between-two-datetime
+				$string1 = "";
+				$string2 = "";
+				for ($i = 0; $i < 5; $i++){
+					$string1 .= substr($now, $i*2,2);
+					$string2 .= substr($end, $i*2,2);
+					if ($i == 0 || $i == 1){$string1 .= "-";$string2 .= "-";}
+					if ($i == 2){$string1 .= " ";$string2 .= " ";}
+					if ($i == 3){$string1 .= ":";$string2 .= ":";}
+				}
+				$timeStamp1 = new DateTime($string1);
+				$timeStamp2 = new DateTime($string2);
+				$timeLeft = $timeStamp1->diff($timeStamp2);
+				include ('product-detail.php');
+			}
 		}
 	}
-
  ?>
