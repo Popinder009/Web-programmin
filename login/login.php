@@ -9,7 +9,8 @@
 		<form action="/login/" method="post">
 			<b>username:</b> <input type="text" name="logUser"><br>      
 			<b>Password:</b> <input type="text" name="logPassword"><br>
-			<input type="submit">
+			<input type="submit" value="login">
+			<input type="button" value="Don't have account? Click here to register!" onclick="window.location.href = '/register'">
 		</form>
 	</body>
 </html>

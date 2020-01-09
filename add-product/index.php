@@ -3,10 +3,15 @@
 	// echo $_POST['add-product-category'];
 
 	if (isset($_SESSION['user_id'],$_SESSION['username'])){
-		if(!empty($_POST['add-product-name']) && !empty($_POST['add-product-description'])
-			&& !empty($_FILES['add-product-image']) && !empty($_POST['add-product-category'])){
+		if(!empty($_POST['add-product-name']) && !empty($_POST['add-product-description']) && !empty($_POST['add-product-time']) 
+			&& $_POST['add-product-time'] > 0 && !empty($_FILES['add-product-image']) && !empty($_POST['add-product-category'])){
 			try {
 				global $connect;
+
+				$now = date("ymdhi");
+				$timeExpired = $now + $_POST['add-product-time']*100;
+					//if ($now < 20 01 09 02 30){ 
+
 
 				// Get image id increment
     			$selectImage = $connect->prepare("SELECT `auto_increment` FROM INFORMATION_SCHEMA.TABLES WHERE table_name = 'product'");
@@ -19,14 +24,15 @@
 				$file = $_FILES['add-product-image'];
 				$name = "image".$getImage[0]['auto_increment'].".".ltrim($file['type'],'image/');
 
-				$SQL = "insert into product (product_name,product_description,product_category,product_image,user_id) 
-					values(:name,:description,:category,:image,:userId)";
+				$SQL = "insert into product (product_name,product_description,product_category,product_image,time_end,user_id) 
+					values(:name,:description,:category,:image,:time,:userId)";
 
 				$handle = $connect->prepare($SQL);
 				$handle->bindValue(":name", $_POST['add-product-name']);
 				$handle->bindValue(":description", $_POST['add-product-description']);
 				$handle->bindValue(":category", $_POST['add-product-category']);
 				$handle->bindValue(":image", $name);
+				$handle->bindValue(":time", $timeExpired);
 				$handle->bindValue(":userId", $_SESSION['user_id']);
 
     			$handle->execute();

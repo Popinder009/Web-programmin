@@ -37,6 +37,8 @@
 		$handle->execute();
 		$getDetail = $handle->fetchAll(PDO::FETCH_ASSOC); // get cat
 
+		var_dump($getDetail);
+
 
 		// get review
 		$sth = $connect->prepare("SELECT * FROM review r 
@@ -49,6 +51,9 @@
 		$reviews = $sth->fetchAll(PDO::FETCH_ASSOC);
 
 		if (!empty($getDetail)){
+			echo date("ymdhi")."<br>";
+			$timeLeft = $getDetail[0]['time_end'] - date("ymdhi");
+			echo $timeLeft; // wait 
 			include ('product-detail.php');
 		}
 	}

@@ -20,6 +20,7 @@ CREATE TABLE product(
     product_image VARCHAR(60) NOT NULL,
     product_category int NOT NULL,
     product_bid int DEFAULT 0,
+    time_end int NOT NULL, -- ymdhi stand for: year month day hour minutes 20-04-31-22-60   ok
     user_id int NOT NULL,
     PRIMARY KEY (product_id),
     FOREIGN KEY (product_category) REFERENCES category (category_id),

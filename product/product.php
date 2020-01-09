@@ -17,9 +17,8 @@
 			</form>
 		</header>
 			<form method="GET" action="/login/">
-				<input name="Logout" type="submit" value="Logout">
+				<input name="Logout" type="submit" value="Login/Logout">
 			</form>
-
 		<nav>
 			<ul>
 				<?php

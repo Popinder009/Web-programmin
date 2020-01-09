@@ -10,7 +10,6 @@
 				$handle->bindValue(":pass", $_POST['regPassword']);
 				var_dump($SQL);
     			$handle->execute();
-
     			header('Location: /login/'); // redirect to another page if register successful
 			} catch (PDOException $e){
 			}
@@ -32,6 +31,7 @@
 <b>Password:</b> <input type="text" name="regPassword"><br>
 <input type="submit">
 </form>
+<a href="/login">Click here to go to the login page!</a>
 
 
 </body>

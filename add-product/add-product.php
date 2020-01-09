@@ -20,6 +20,8 @@
 
 						<label>Product Description </label> <textarea name="add-product-description"></textarea><br>
 
+						<lable>End hours duration: </lable><input type="number" name="add-product-time"><br>
+
 						<label>Product Image </label> <input type="file" name="add-product-image" accept="image/*"/><br>
 
 						<label>Product Category: </label><br>
