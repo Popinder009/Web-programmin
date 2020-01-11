@@ -16,9 +16,6 @@
 				<input type="submit" value="Search" />
 			</form>
 		</header>
-			<form method="GET" action="/login/">
-				<input name="Logout" type="submit" value="Login/Logout">
-			</form>
 		<nav>
 			<ul>
 				<?php
@@ -42,13 +39,36 @@
 						<li><a href="#">Motors</a></li>*/
 					}
 				?>
-				
+						<!--<form action='/login' method=POST id=sessionOut style='all: unset;''>
+                			<input type=hidden name='sign_out'>
+              			</form>;-->
+
+              	<li>
+              		<a href='/login?Logout=Submit' onclick="document.getElementById('account').submit();">
+              			<?php 
+              				if (!isset($_SESSION['user_id'])){
+              					echo "Login";
+              				} else {
+              					echo "Logout";
+              				}
+              			?>
+              		</a>
+              	</li>
+				<form method="GET" action="/login/" id="account">
+					<input name="Logout" type="hidden">
+				</form>
 			</ul>
 		</nav>
 		<img src="images/randombanner.php" alt="Banner" />
 
 		<main>
-
+			<?php 
+				if (!isset($_SESSION['user_id'])){
+					echo "";
+				} else {
+					echo "<p><a>Add product</a></p>";
+				}
+			?>
 			<h1 ><a href="/product">Latest Listings</a> / <a href="/Search">Search Results</a> / <a href="/product?listCate=true">Category listing</a></h1>
 			<?php 
 

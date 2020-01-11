@@ -19,7 +19,7 @@ function connectToDB(){
 		return FALSE;
 	}
 }
-var_dump(connectToDB());
+//var_dump(connectToDB());
 
 connectToDB();
 session_start();

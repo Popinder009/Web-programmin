@@ -34,3 +34,12 @@ CREATE TABLE review (
     FOREIGN KEY (product_id) REFERENCES product (product_id),
     FOREIGN KEY (user_id) REFERENCES user_account (user_id)
 );
+
+INSERT INTO category (category_name) values('Home');
+INSERT INTO category (category_name) values('Garden');
+INSERT INTO category (category_name) values('Electronics');
+INSERT INTO category (category_name) values('Fashion');
+INSERT INTO category (category_name) values('Sport');
+INSERT INTO category (category_name) values('Health');
+INSERT INTO category (category_name) values('Toys');
+INSERT INTO category (category_name) values('Motors');
